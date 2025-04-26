@@ -14,10 +14,10 @@ public class Validador extends Thread {
     @Override
     public void run() {
         boolean valida = new longitud(contraseña).validar(contraseña)
-                        && new especial().validar(contraseña)
-                        && new mayus().validar(contraseña)
-                        && new minus().validar(contraseña)
-                        && new num().validar(contraseña);
+                        && new especial(contraseña).validar(contraseña)
+                        && new mayus(contraseña).validar(contraseña)
+                        && new minus(contraseña).validar(contraseña)
+                        && new num(contraseña).validar(contraseña);
 
         System.out.println("Contraseña: \"" + contraseña + "\" es " + (valida ? "valida " : "invalida "));
     }

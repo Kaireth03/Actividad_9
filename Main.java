@@ -1,29 +1,39 @@
-import  java.util.Scanner;
+import java.util.Scanner;
+
+import valid.especial;
+import valid.longitud;
+import valid.mayus;
+import valid.minus;
+import valid.num;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-        String respuesta;
+        System.out.print("Ingrese la contraseña a validar: ");
+        String password = scanner.nextLine();
 
-        do {
-            System.out.print("Ingrese una contraseña a validar: ");
-            String contraseña = scanner.nextLine();
+        Thread validador1 = new longitud(password);
+        Thread validador2 = new especial(password);
+        Thread validador3 = new mayus(password);
+        Thread validador4 = new minus(password);
+        Thread validador5 = new num(password);
 
-            Thread validador = new Validador(contraseña);
-            validador.start();
+        validador1.start();
+        validador2.start();
+        validador3.start();
+        validador4.start();
+        validador5.start();
 
-            try {
-                validador.join(); // Espera a que el hilo termine antes de continuar
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        try {
+            validador1.join();
+            validador2.join();
+            validador3.join();
+            validador4.join();
+            validador5.join();
+        } catch (InterruptedException e) {
+            System.out.println("Error al esperar los hilos: " + e.getMessage());
+        }
 
-            System.out.print("\n¿Desea ingresar otra contraseña? (s/n): ");
-            respuesta = scanner.nextLine().toLowerCase();
-        } while (respuesta.equals("s"));
-
-        System.out.println("Gracias por usar el validador de contraseñas.");
-        scanner.close();
+        System.out.println("\nValidación completa.");
     }
 }
