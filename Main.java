@@ -9,6 +9,9 @@ import valid.num;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String respuesta;
+
+        do{
         System.out.print("Ingrese la contraseña a validar: ");
         String password = scanner.nextLine();
 
@@ -34,6 +37,8 @@ public class Main {
             System.out.println("Error al esperar los hilos: " + e.getMessage());
         }
 
-        System.out.println("\nValidación completa.");
-    }
+        System.out.print("\n¿Desea ingresar otra contraseña? (s/n): ");
+            respuesta = scanner.nextLine().toLowerCase();
+        } while (respuesta.equals("s"));
+}
 }
