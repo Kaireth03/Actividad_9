@@ -19,7 +19,7 @@ public class Validador extends Thread {
                         && new minus().validar(contraseña)
                         && new num().validar(contraseña);
 
-        System.out.println("Contraseña: \"" + contraseña + "\" es " + (valida ? "válida ✅" : "inválida ❌"));
+        System.out.println("Contraseña: \"" + contraseña + "\" es " + (valida ? "valida " : "invalida "));
     }
 }
 
