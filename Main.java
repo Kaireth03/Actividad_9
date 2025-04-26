@@ -1,12 +1,29 @@
+import  java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        String[] contraseñas = {
-            "Abc123!@#", "AAaa11@@", "Short1!", "Aa1!", "ABCdef12#", "aA1!", "AAabc123@", "Valid1!Password"
-        };
 
-        for (String contraseña : contraseñas) {
+        Scanner scanner = new Scanner(System.in);
+        String respuesta;
+
+        do {
+            System.out.print("Ingrese una contraseña a validar: ");
+            String contraseña = scanner.nextLine();
+
             Thread validador = new Validador(contraseña);
             validador.start();
-        }
+
+            try {
+                validador.join(); // Espera a que el hilo termine antes de continuar
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.print("\n¿Desea ingresar otra contraseña? (s/n): ");
+            respuesta = scanner.nextLine().toLowerCase();
+        } while (respuesta.equals("s"));
+
+        System.out.println("Gracias por usar el validador de contraseñas.");
+        scanner.close();
     }
 }
