@@ -21,7 +21,7 @@ public class minus extends Thread {
     }
 
     public boolean validar(String contraseña2) {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'validar'");
     }
 }
