@@ -1,3 +1,9 @@
+import valid.especial;
+import valid.longitud;
+import valid.mayus;
+import valid.minus;
+import valid.num;
+
 public class Validador extends Thread {
     private final String contraseña;
 
@@ -7,11 +13,11 @@ public class Validador extends Thread {
 
     @Override
     public void run() {
-        boolean valida = new LongitudValidador().validar(contraseña)
-                        && new EspecialValidador().validar(contraseña)
-                        && new MayusculasValidador().validar(contraseña)
-                        && new MinusculasValidador().validar(contraseña)
-                        && new NumerosValidador().validar(contraseña);
+        boolean valida = new longitud().validar(contraseña)
+                        && new especial().validar(contraseña)
+                        && new mayus().validar(contraseña)
+                        && new minus().validar(contraseña)
+                        && new num().validar(contraseña);
 
         System.out.println("Contraseña: \"" + contraseña + "\" es " + (valida ? "válida ✅" : "inválida ❌"));
     }

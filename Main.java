@@ -5,7 +5,7 @@ public class Main {
         };
 
         for (String contraseña : contraseñas) {
-            Thread validador = new ValidadorContraseña(contraseña);
+            Thread validador = new Validador(contraseña);
             validador.start();
         }
     }
