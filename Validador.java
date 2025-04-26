@@ -13,7 +13,7 @@ public class Validador extends Thread {
 
     @Override
     public void run() {
-        boolean valida = new longitud().validar(contraseña)
+        boolean valida = new longitud(contraseña).validar(contraseña)
                         && new especial().validar(contraseña)
                         && new mayus().validar(contraseña)
                         && new minus().validar(contraseña)

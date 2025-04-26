@@ -15,5 +15,10 @@ public class longitud extends Thread {
             System.out.println("Longitud válida.");
         }
     }
+
+    public boolean validar(String contraseña2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'validar'");
+    }
 }
 
